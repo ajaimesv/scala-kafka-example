@@ -9,9 +9,9 @@ own thread checking every 5 seconds for new messages. It is implemented using Pl
 scheduler functions. Once a new message is received, it prints it to the screen. (See `Consumer`,
 `TasksModule` and `application.conf`).
 
-Note: On this example we run two consumers: A and B. Consumer A is executed from the terminal, and it's part
-of Kafka's files. Consumer B is our scala kafka consumer. It is automatically run when we execute
-`sbt run`.
+> **Note:** On this example we run two consumers: A and B. Consumer A is executed from the terminal, and it's part
+> of Kafka's files. Consumer B is our scala kafka consumer. It is automatically run when we execute
+> `sbt run`.
 
 We have to run kafka before running this application. Instructions for setting up can be found
 on [Kafka's Quickstart](https://kafka.apache.org/quickstart) page, and can be summarized as follows:
@@ -75,13 +75,13 @@ step) something like this:
 message 1563656125978
 ```
 
-And after some seconds in our PlayFramework output, consumer B (scala code) printing a message like this:
+And after some seconds in our PlayFramework output, consumer B (scala code) a message like this:
 
 ```
 ConsumerRecord(topic = test, partition = 0, leaderEpoch = 0, offset = 38, CreateTime = 1563656125981, serialized key size = 3, serialized value size = 21, headers = RecordHeaders(headers = [], isReadOnly = false), key = key, value = message 1563656125978)
 ```
 
-**Important:** In my experience, recompiling the code disrupts consumer B, for example, it may stop printing
-results. If this happens, you have to
-stop Play (^C) and start it again (`sbt run`). The reason behind this may be related to the fact that
-this consumer runs using Play's scheduler, but I haven't really looked further into it.
+> **Important:** In my experience, recompiling the code disrupts consumer B, for example, it may stop printing
+> results. If this happens, you have to
+> stop Play (^C) and start it again (`sbt run`). The reason behind this may be related to the fact that
+> this consumer runs using Play's scheduler, but I haven't really looked further into it.
